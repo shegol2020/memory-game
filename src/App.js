@@ -1,13 +1,11 @@
 import styled from "styled-components";
+import {finishedItems, visibleItems} from "./data";
 
-function App() {
+function App({images}) {
   return (
     <>
       <GameContainer>
-          <Cards className="cards-theme-cars">
-            <Card />
-              <Card />
-          </Cards>
+          <CardContainer images={images}  visibleItems={visibleItems} finishedItems={finishedItems}/>
       </GameContainer>
     </>
   );
@@ -23,21 +21,36 @@ const GameContainer = styled.section`
   padding-top: 40px;
 `
 
-const Cards = styled.ul`
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(4, 220px);
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  perspective: 1000px; 
-`
+// const Cards = styled.ul`
+//   grid-column: 1 / -1;
+//   display: grid;
+//   grid-template-columns: repeat(4, 220px);
+//   gap: 20px;
+//   margin: 0;
+//   padding: 0;
+//   list-style: none;
+//   perspective: 1000px;
+// `
 
-function Card(){
+function CardContainer({images, visibleItems, finishedItems}){
     return <>
-        <StyledCard className="card-show">
-            <img src="../assets/img/cats-1.jpg" width="204" height="144" alt="Котик"/>
+        <ul className="cards cards-theme-cars">
+            {images.map(item => <Card
+                key={item.id}
+                url={item.url}
+                description={item.description}
+                isShown={visibleItems.includes(item.id)}
+                isFinished={finishedItems.includes(item.id)}
+            />)}
+        </ul>
+    </>
+}
+
+function Card({url, description, isShown, isFinished}){
+    const className = `card ${isShown ? 'card-show' : ''} ${isFinished ? 'card-finished' : ''}`;
+    return <>
+        <StyledCard className={className}>
+            <img src={url} width="204" height="144" alt={description}/>
         </StyledCard>
     </>
 }
@@ -55,7 +68,7 @@ const StyledCard = styled.li`
   cursor: pointer;
   transition: transform var(--animation-duration);
   transform-style: preserve-3d;
-  
+
   &:after{
     grid-area: 1 / 1 / 2 / 2;
     content: "";
