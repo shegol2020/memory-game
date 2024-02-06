@@ -69,12 +69,12 @@ const StyledCard = styled.li`
   transition: transform var(--animation-duration);
   transform-style: preserve-3d;
 
-  &:after{
+  &:after {
     grid-area: 1 / 1 / 2 / 2;
     content: "";
     width: 218px;
     height: 158px;
-    background-image: url("../assets/img/back-cats.svg");
+    background-image: url("src/assets/img/back-cats.svg");
     background-repeat: no-repeat;
     background-position: center;
     backface-visibility: hidden;
@@ -87,7 +87,7 @@ const StyledCard = styled.li`
     height: 144px;
     border-radius: 5px;
     background-color: rgba(140, 174, 200, 0.6);
-    background-image: url("../assets/img/check.svg");
+    background-image: url("src/assets/img/check.svg");
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;

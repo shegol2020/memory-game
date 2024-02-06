@@ -1,6 +1,6 @@
 const images = [{
   'id': 'YdAqiUkUoWA',
-  'url': 'img/cats-1.jpg',
+  'url': './assets/img/cats-1.jpg',
   'description': 'pink petaled flower',
 }, {
   'id': 'hX_hf2lPpUU',
