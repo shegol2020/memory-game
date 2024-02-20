@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {finishedItems, visibleItems} from "./data";
+//import {finishedItems, visibleItems} from "./data";
 
 function App({images}) {
   return (
     <>
       <GameContainer>
-          <CardContainer images={images}  visibleItems={visibleItems} finishedItems={finishedItems}/>
+          <CardContainer images={images}/>
       </GameContainer>
     </>
   );
@@ -21,7 +21,9 @@ const GameContainer = styled.section`
   padding-top: 40px;
 `
 
-function CardContainer({images, visibleItems, finishedItems}){
+function CardContainer({images}){
+    const visibleItems = ['hX_hf2lPpUU', '3tYZjGSBwbk'];
+    const finishedItems = ['YdAqiUkUoWA', 'YdAqiUkUoWA1', 'w1JE5duY62M', 'w1JE5duY62M1'];
     return <>
         <ul className="cards cards-theme-cars">
             {images.map(item => <Card
