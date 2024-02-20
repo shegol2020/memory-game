@@ -3,10 +3,15 @@ import {useState} from "react";
 //import {finishedItems, visibleItems} from "./data";
 
 function App({images}) {
+    const [counter, setCounter] = useState(0);
+    const increaseCounter = () => {
+        setCounter(i => i+1);
+    }
   return (
     <>
       <GameContainer>
-          <CardContainer images={images}/>
+          <Steps className="steps">Шаг {counter}</Steps>
+          <CardContainer images={images} increaseCounter={increaseCounter}/>
       </GameContainer>
     </>
   );
@@ -22,11 +27,23 @@ const GameContainer = styled.section`
   padding-top: 40px;
 `
 
-function CardContainer({images}){
+const Steps = styled.div`
+  justify-self: end;
+  padding: 8px 20px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 28px;
+  color: #ffffff;
+  background-color: #00ca51;
+  border-radius: 22px;
+`
+
+function CardContainer({images, increaseCounter}){
     const [visibleItems, setVisibleItems] = useState(['hX_hf2lPpUU', '3tYZjGSBwbk']);
     const [finishedItems, setFinishedItems] = useState(['YdAqiUkUoWA', 'YdAqiUkUoWA1', 'w1JE5duY62M', 'w1JE5duY62M1']);
     const cardClickHandler = (id) => {
         setVisibleItems(items => [...items, id]);
+        increaseCounter();
     }
     return <>
         <ul className="cards cards-theme-cars">
@@ -38,6 +55,7 @@ function CardContainer({images}){
                 isShown={visibleItems.includes(item.id)}
                 isFinished={finishedItems.includes(item.id)}
                 cardClick={cardClickHandler}
+                //increaseCounter={increaseCounter}
             />)}
         </ul>
     </>
