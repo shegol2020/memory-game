@@ -10,12 +10,19 @@ function App({images}) {
   return (
     <>
       <GameContainer>
+          <Progress/>
           <Steps className="steps">Шаг {counter}</Steps>
           <CardContainer images={images} increaseCounter={increaseCounter}/>
+          <Modal>
+              <h3 className="modal-caption">Победа!</h3>
+              <p className="modal-description">Вы собрали все пары за {5} шагов</p>
+              <button className="button modal-button" type="button">Новая игра</button>
+          </Modal>
       </GameContainer>
     </>
   );
 }
+
 
 const GameContainer = styled.section`
   width: 940px;
@@ -72,6 +79,45 @@ function Card({url, description, isShown, isFinished, cardClick, id}){
             <img src={url} width="204" height="144" alt={description}/>
         </li>
     </>
+}
+
+function Progress() {
+    return <>
+        <ProgressWrap>
+            <ProgressContainer style={{width: `${5 / 6 * 100}%`}}></ProgressContainer>
+        </ProgressWrap>
+        <ProgressDescription className="progress-description">Открыто {5} / {6}</ProgressDescription>
+    </>
+}
+
+const ProgressWrap = styled.div`
+  display: flex;
+  width: 460px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+`
+
+const ProgressContainer = styled.div`
+  background-color: #00ca51;
+  border-radius: 8px;
+  transition: width var(--animation-duration);
+`
+
+const ProgressDescription = styled.p`
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+`
+
+function Modal({children}){
+    return (
+        <div className="modal">
+            <div className="modal-box">
+                {children}
+            </div>
+        </div>
+    );
 }
 
 export default App;
