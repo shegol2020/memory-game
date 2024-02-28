@@ -1,23 +1,28 @@
 import styled from "styled-components";
-import {useState} from "react";
 import Progress from "./components/Progress";
 import CardContainer from "./components/CardContainer";
 import Modal from "./components/Modal";
 import useGame from "./hooks/useGame";
 
 function App({images = []}) {
-  const {handleReset, counter, increaseCounter} = useGame(images);
+  const {handleReset, counter, increaseCounter, handleClick, isWin, finishedItems} = useGame(images);
   return (
     <>
       <GameContainer>
-          <Progress/>
+          <Progress finishedItems={finishedItems}/>
           <Steps>Шаг {counter}</Steps>
-          <CardContainer images={images} increaseCounter={increaseCounter}/>
-          <Modal>
+          <CardContainer
+              images={images}
+              onIncreaseCounter={increaseCounter}
+              onHandleClick={handleClick}
+              finishedItems={finishedItems}
+          />
+          {isWin && (<Modal>
               <h3 className="modal-caption">Победа!</h3>
               <p className="modal-description">Вы собрали все пары за {counter} шагов</p>
               <button className="button modal-button" type="button" onClick={handleReset}>Новая игра</button>
           </Modal>
+          )}
       </GameContainer>
     </>
   );

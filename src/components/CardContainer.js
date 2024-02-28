@@ -1,12 +1,13 @@
 import {useState} from "react";
 import Card from "./Card";
 
-export default function CardContainer({images, increaseCounter}){
+export default function CardContainer({images, onIncreaseCounter, onHandleClick, finishedItems}){
     const [visibleItems, setVisibleItems] = useState(['hX_hf2lPpUU', '3tYZjGSBwbk']);
-    const [finishedItems, setFinishedItems] = useState(['YdAqiUkUoWA', 'YdAqiUkUoWA1', 'w1JE5duY62M', 'w1JE5duY62M1']);
+    //const [finishedItems, setFinishedItems] = useState(['YdAqiUkUoWA', 'YdAqiUkUoWA1', 'w1JE5duY62M', 'w1JE5duY62M1']);
     const cardClickHandler = (id) => {
         setVisibleItems(items => [...items, id]);
-        increaseCounter();
+        onIncreaseCounter();
+        onHandleClick(id);
     }
     return <>
         <ul className="cards cards-theme-cars">
@@ -16,7 +17,6 @@ export default function CardContainer({images, increaseCounter}){
                 isShown={visibleItems.includes(item.id)}
                 isFinished={finishedItems.includes(item.id)}
                 cardClick={cardClickHandler}
-                //increaseCounter={increaseCounter}
             />)}
         </ul>
     </>
