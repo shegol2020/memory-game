@@ -2,12 +2,26 @@ import {useState} from "react";
 import Card from "./Card";
 
 export default function CardContainer({images, onIncreaseCounter, onHandleClick, finishedItems}){
-    const [visibleItems, setVisibleItems] = useState(['hX_hf2lPpUU', '3tYZjGSBwbk']);
-    //const [finishedItems, setFinishedItems] = useState(['YdAqiUkUoWA', 'YdAqiUkUoWA1', 'w1JE5duY62M', 'w1JE5duY62M1']);
+    const [visibleItems, setVisibleItems] = useState([]);
     const cardClickHandler = (id) => {
-        setVisibleItems(items => [...items, id]);
-        onIncreaseCounter();
-        onHandleClick(id);
+        if (finishedItems.includes(id) || visibleItems.includes(id)) {
+            return;
+        }
+        switch (visibleItems.length) {
+            case 0:
+                setVisibleItems([id]);
+                break;
+            case 1:
+                setVisibleItems((items) => [...items, id]);
+                onHandleClick(visibleItems[0], id);
+                setTimeout(() => {
+                    setVisibleItems([]);
+                }, 2000);
+                break;
+            default:
+                setVisibleItems([]);
+        }
+
     }
     return <>
         <ul className="cards cards-theme-cars">

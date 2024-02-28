@@ -5,15 +5,14 @@ import Modal from "./components/Modal";
 import useGame from "./hooks/useGame";
 
 function App({images = []}) {
-  const {handleReset, counter, increaseCounter, handleClick, isWin, finishedItems} = useGame(images);
+  const {handleReset, counter, handleClick, isWin, finishedItems} = useGame(images);
   return (
     <>
       <GameContainer>
-          <Progress finishedItems={finishedItems}/>
+          <Progress value={finishedItems.length/2} max={images.length/2}/>
           <Steps>Шаг {counter}</Steps>
           <CardContainer
               images={images}
-              onIncreaseCounter={increaseCounter}
               onHandleClick={handleClick}
               finishedItems={finishedItems}
           />

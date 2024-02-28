@@ -11,16 +11,20 @@ export default function useGame(images) {
         setCounter(0);
     };
 
-    const handleClick = (id) => {
-        setFinishedItems(items => [...items, id])
+    const handleClick = (id1, id2) => {
+        const firstItem = images.find(({id}) => id === id1);
+        const secondItem = images.find(({id}) => id === id2);
+        if(firstItem.url === secondItem.url){
+            setFinishedItems(items => [...items, id1, id2])
+        }
+        increaseCounter();
     }
 
-    const isWin = finishedItems.length === 6; //hardcode
+    const isWin = finishedItems.length === images.length;
 
     return {
         handleReset,
         counter,
-        increaseCounter,
         handleClick,
         isWin,
         finishedItems

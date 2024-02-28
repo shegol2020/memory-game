@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export default function Progress({finishedItems}) {
+export default function Progress({value, max }) {
     return <>
         <ProgressWrap>
-            <ProgressContainer style={{width: `${finishedItems.length / 6 * 100}%`}}></ProgressContainer>
+            <ProgressContainer style={{width: `${value / max * 100}%`}}></ProgressContainer>
         </ProgressWrap>
-        <ProgressDescription className="progress-description">Открыто {finishedItems.length} / {6}</ProgressDescription>
+        <ProgressDescription className="progress-description">Открыто {value} / {max}</ProgressDescription>
     </>
 }
 
