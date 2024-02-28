@@ -3,17 +3,10 @@ import {useState} from "react";
 import Progress from "./components/Progress";
 import CardContainer from "./components/CardContainer";
 import Modal from "./components/Modal";
-//import {finishedItems, visibleItems} from "./data";
+import useGame from "./hooks/useGame";
 
-function App({images}) {
-    const [counter, setCounter] = useState(0);
-    const increaseCounter = () => {
-        setCounter(i => i+1);
-    }
-    const handleReset = () => {
-        //setFinishedItems([]);
-        setCounter(0);
-    };
+function App({images = []}) {
+  const {handleReset, counter, increaseCounter} = useGame(images);
   return (
     <>
       <GameContainer>
