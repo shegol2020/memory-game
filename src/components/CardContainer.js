@@ -1,7 +1,7 @@
 import {useState} from "react";
 import Card from "./Card";
 
-export default function CardContainer({images, onIncreaseCounter, onHandleClick, finishedItems}){
+export default function CardContainer({images, onHandleClick, finishedItems}){
     const [visibleItems, setVisibleItems] = useState([]);
     const cardClickHandler = (id) => {
         if (finishedItems.includes(id) || visibleItems.includes(id)) {
