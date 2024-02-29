@@ -4,18 +4,18 @@ export default function ResultsTable(){
     return (
         <ResultTable>
             <thead>
-            <ResultTableRow className="result-table-row">
+            <ResultTableRow>
                 <TableHeader>Место</TableHeader>
                 <TableHeader>Имя</TableHeader>
                 <TableHeader>Шаги</TableHeader>
             </ResultTableRow>
             </thead>
             <tbody>
-                <tr>
+                <ResultTableRow>
                     <TableData>{1}</TableData>
                     <TableData>{"test"}</TableData>
                     <TableData>{5}</TableData>
-                </tr>
+                </ResultTableRow>
             </tbody>
         </ResultTable>
     );
@@ -32,7 +32,7 @@ const ResultTable = styled.table`
   border-collapse: collapse;
 `
 
-const ResultTableRow = styled.div`
+const ResultTableRow = styled.tr`
   display: grid;
   grid-template-columns: 120px 260px 140px;
   align-items: center;

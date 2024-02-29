@@ -1,4 +1,5 @@
 import GamePage from "./components/GamePage";
+import ResultsPage from "./components/ResultsPage";
 
 function App({images = []}) {
     const getPage = (route) => {
@@ -7,13 +8,13 @@ function App({images = []}) {
                 return <GamePage images={images}/>;
             case "results":
                 return (
-                    <p>test page</p>
+                    <ResultsPage/>
                 );
             default:
                 return null;
         }
     }
-    return getPage("results")
+    return getPage("game")
 }
 
 

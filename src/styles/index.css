@@ -7,7 +7,7 @@
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url("../public/assets/fonts/Nunito-Regular.woff2") format("woff2");
+    src: url("../../public/assets/fonts/Nunito-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -15,7 +15,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url("../public/assets/fonts/Nunito-Bold.woff2") format("woff2");
+    src: url("../../public/assets/fonts/Nunito-Bold.woff2") format("woff2");
 }
 
 @font-face {
@@ -23,7 +23,7 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url("../public/assets/fonts/Nunito-Black.woff2") format("woff2");
+    src: url("../../public/assets/fonts/Nunito-Black.woff2") format("woff2");
 }
 
 body {
@@ -32,23 +32,23 @@ body {
     font-size: 20px;
     line-height: 28px;
     color: #333333;
-    background: url("../public/assets/img/clouds.svg") no-repeat top 40px center,
+    background: url("../../public/assets/img/clouds.svg") no-repeat top 40px center,
     linear-gradient(180deg, #c2e5fe 0%, #ffffff 50%) no-repeat;
 }
 
-.button {
-    padding: 16px 24px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    color: #333333;
-    border: none;
-    background-color: #ffbf20;
-    border-radius: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-}
+/*.button {*/
+/*    padding: 16px 24px;*/
+/*    font-family: inherit;*/
+/*    font-weight: 700;*/
+/*    font-size: 16px;*/
+/*    line-height: 24px;*/
+/*    color: #333333;*/
+/*    border: none;*/
+/*    background-color: #ffbf20;*/
+/*    border-radius: 10px;*/
+/*    cursor: pointer;*/
+/*    box-sizing: border-box;*/
+/*}*/
 
 .button:hover {
     background-color: #ffd97c;
@@ -100,7 +100,7 @@ body {
     content: "";
     width: 218px;
     height: 158px;
-    background-image: url("../public/assets/img/back-cats.svg");
+    background-image: url("../../public/assets/img/back-cats.svg");
     background-repeat: no-repeat;
     background-position: center;
     backface-visibility: hidden;
@@ -115,7 +115,7 @@ body {
     height: 144px;
     border-radius: 5px;
     background-color: rgba(140, 174, 200, 0.6);
-    background-image: url("../public/assets/img/check.svg");
+    background-image: url("../../public/assets/img/check.svg");
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0;
