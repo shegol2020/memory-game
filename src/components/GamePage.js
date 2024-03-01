@@ -3,6 +3,7 @@ import useGame from "../hooks/useGame";
 import Progress from "./Progress";
 import CardContainer from "./CardContainer";
 import Modal from "./Modal";
+import {Button} from "../styles/CommonComponents";
 
 export default function GamePage ({images}){
     const {handleReset, counter, handleClick, isWin, finishedItems} = useGame(images);
@@ -17,9 +18,9 @@ export default function GamePage ({images}){
                     finishedItems={finishedItems}
                 />
                 {isWin && (<Modal>
-                        <h3 className="modal-caption">Победа!</h3>
-                        <p className="modal-description">Вы собрали все пары за {counter} шагов</p>
-                        <button className="button modal-button" type="button" onClick={handleReset}>Новая игра</button>
+                        <ModalCaption>Победа!</ModalCaption>
+                        <ModalDescription>Вы собрали все пары за {counter} шагов</ModalDescription>
+                        <ModalButton type="button" onClick={handleReset}>Новая игра</ModalButton>
                     </Modal>
                 )}
             </GameContainer>
@@ -48,3 +49,19 @@ const Steps = styled.div`
   background-color: #00ca51;
   border-radius: 22px;
 `
+
+const ModalCaption = styled.h3`
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 32px;
+`;
+
+const ModalDescription = styled.p`
+  margin: 0 0 32px;
+  font-size: 16px;
+  line-height: 22px;
+`;
+
+const ModalButton = styled(Button)`
+  width: 100%;
+`;
