@@ -49,4 +49,10 @@ const images = [{
   'description': 'white and purple flower petals',
 }];
 
-export {images}
+const results = [
+  { name: 'Marie', stepsCount: 16 },
+  { name: 'Ada', stepsCount: 12 },
+  { name: 'Kate', stepsCount: 19 }
+];
+
+export {images, results}

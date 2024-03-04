@@ -1,21 +1,24 @@
 import styled from "styled-components";
 
-export default function ResultsTable(){
+export default function ResultsTable({results}){
+
     return (
         <ResultTable>
             <thead>
             <ResultTableRow>
-                <TableHeader>Место</TableHeader>
-                <TableHeader>Имя</TableHeader>
-                <TableHeader>Шаги</TableHeader>
+                <TableHeader>Rank</TableHeader>
+                <TableHeader>Name</TableHeader>
+                <TableHeader>Steps</TableHeader>
             </ResultTableRow>
             </thead>
             <tbody>
-                <ResultTableRow>
-                    <TableData>{1}</TableData>
-                    <TableData>{"test"}</TableData>
-                    <TableData>{5}</TableData>
-                </ResultTableRow>
+            {results.map(({name, stepsCount}, i) => {
+                return ( <ResultTableRow key={name}>
+                    <TableData>{i+1}</TableData>
+                    <TableData>{name}</TableData>
+                    <TableData>{stepsCount}</TableData>
+                </ResultTableRow>)
+            })}
             </tbody>
         </ResultTable>
     );

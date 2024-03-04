@@ -2,14 +2,15 @@ import ResultsTable from "./ResultsTable";
 import {Container, Button} from "../styles/CommonComponents";
 import styled from "styled-components";
 
-export default function ResultsPage(){
+export default function ResultsPage({results, current, onResetGame}){
+    const newResults = [...results, {name: "You", stepsCount: current}]
     return (
         <ResultContainer>
-            <h2>Лучшие результаты:</h2>
-            <p>Вы завершили игру за <b>{5} шагов</b>, так держать!</p>
-            <ResultsTable current={5} results={5} />
-            <p>Хотите попробовать ещё раз?</p>
-            <ResultButton type="button">Новая игра</ResultButton>
+            <h2>Best results</h2>
+            <p>Your result is <b>{current} steps</b>, well done!</p>
+            <ResultsTable results={newResults} />
+            <p>Try again!</p>
+            <ResultButton type="button" onClick={onResetGame}>New game</ResultButton>
         </ResultContainer>
     );
 }

@@ -5,8 +5,11 @@ import CardContainer from "./CardContainer";
 import Modal from "./Modal";
 import {Button} from "../styles/CommonComponents";
 
-export default function GamePage ({images}){
-    const {handleReset, counter, handleClick, isWin, finishedItems} = useGame(images);
+export default function GamePage ({images, onShowResult}){
+    const {counter, handleClick, isWin, finishedItems} = useGame(images);
+    const handleModalClick = () => {
+        onShowResult(counter);
+    }
     return (
         <>
             <GameContainer>
@@ -20,7 +23,7 @@ export default function GamePage ({images}){
                 {isWin && (<Modal>
                         <ModalCaption>Победа!</ModalCaption>
                         <ModalDescription>Вы собрали все пары за {counter} шагов</ModalDescription>
-                        <ModalButton type="button" onClick={handleReset}>Новая игра</ModalButton>
+                        <ModalButton type="button" onClick={handleModalClick}>Новая игра</ModalButton>
                     </Modal>
                 )}
             </GameContainer>

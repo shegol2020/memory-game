@@ -6,10 +6,6 @@ export default function useGame(images) {
     const increaseCounter = () => {
         setCounter(i => i+1);
     }
-    const handleReset = () => {
-        setFinishedItems([]);
-        setCounter(0);
-    };
 
     const handleClick = (id1, id2) => {
         const firstItem = images.find(({id}) => id === id1);
@@ -21,9 +17,9 @@ export default function useGame(images) {
     }
 
     const isWin = finishedItems.length === images.length;
+    //const isWin =true;
 
     return {
-        handleReset,
         counter,
         handleClick,
         isWin,
