@@ -2,6 +2,7 @@ import styled, {css} from "styled-components";
 
 export default function ResultsTable({results, current}){
     const newResults = [...results, {name: "You", stepsCount: current}]
+        .sort((a, b) => a.stepsCount-b.stepsCount);
     return (
         <ResultTable>
             <thead>
@@ -43,7 +44,7 @@ const ResultTableRow = styled.tr`
   ${(props) => 
           props.$active 
           ? css`
-                font-weight: 600;
+                font-weight: 700;
                 color: #ffffff;
                 background-color: #00ca51;
                   `
