@@ -5,7 +5,7 @@ export default function Progress({value, max }) {
         <ProgressWrap>
             <ProgressIndicator style={{width: `${value / max * 100}%`}}></ProgressIndicator>
         </ProgressWrap>
-        <ProgressDescription className="progress-description">Открыто {value} / {max}</ProgressDescription>
+        <ProgressDescription className="progress-description">Open {value} / {max}</ProgressDescription>
     </>
 }
 
