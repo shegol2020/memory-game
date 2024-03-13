@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-export default function ResultsTable({results}){
-
+export default function ResultsTable({results, current}){
+    const newResults = [...results, {name: "You", stepsCount: current}]
     return (
         <ResultTable>
             <thead>
@@ -12,8 +12,8 @@ export default function ResultsTable({results}){
             </ResultTableRow>
             </thead>
             <tbody>
-            {results.map(({name, stepsCount}, i) => {
-                return ( <ResultTableRow key={name}>
+            {newResults.map(({name, stepsCount}, i) => {
+                return ( <ResultTableRow key={name} $active={name === "You"}>
                     <TableData>{i+1}</TableData>
                     <TableData>{name}</TableData>
                     <TableData>{stepsCount}</TableData>
@@ -39,6 +39,16 @@ const ResultTableRow = styled.tr`
   display: grid;
   grid-template-columns: 120px 260px 140px;
   align-items: center;
+  
+  ${(props) => 
+          props.$active 
+          ? css`
+                font-weight: 600;
+                color: #ffffff;
+                background-color: #00ca51;
+                  `
+                  : ''}
+  }
 `;
 
 const TableHeader = styled.th`
