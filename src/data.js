@@ -1,53 +1,85 @@
-
-const images = [{
+const cats = [{
   'id': 'YdAqiUkUoWA',
   'url': 'assets/img/cats-1.jpg',
-  'description': 'pink petaled flower',
+  'description': '',
 }, {
   'id': 'hX_hf2lPpUU',
   'url': 'assets/img/cats-2.jpg',
-  'description': 'green leaf',
+  'description': '',
 }, {
   'id': 'w1JE5duY62M',
   'url': 'assets/img/cats-3.jpg',
-  'description': 'red and white petaled flower close-up photography',
+  'description': '',
 }, {
   'id': '3tYZjGSBwbk',
   'url': 'assets/img/cats-4.jpg',
-  'description': 'white daisy in bloom during daytime',
+  'description': '',
 }, {
   'id': 'NoXUQ54pDac',
   'url': 'assets/img/cats-5.jpg',
-  'description': 'white-and-pink flowers',
+  'description': '',
 }, {
   'id': 'OZhYgZh0bAg',
   'url': 'assets/img/cats-6.jpg',
-  'description': 'white and purple flower petals',
-}, {
-  'id': 'YdAqiUkUoWA1',
-  'url': 'assets/img/cats-1.jpg',
-  'description': 'pink petaled flower',
-}, {
-  'id': 'hX_hf2lPpUU1',
-  'url': 'assets/img/cats-2.jpg',
-  'description': 'green leaf',
-}, {
-  'id': 'w1JE5duY62M1',
-  'url': 'assets/img/cats-3.jpg',
-  'description': 'red and white petaled flower close-up photography',
-}, {
-  'id': '3tYZjGSBwbk1',
-  'url': 'assets/img/cats-4.jpg',
-  'description': 'white daisy in bloom during daytime',
-}, {
-  'id': 'NoXUQ54pDac1',
-  'url': 'assets/img/cats-5.jpg',
-  'description': 'white-and-pink flowers',
-}, {
-  'id': 'OZhYgZh0bAg1',
-  'url': 'assets/img/cats-6.jpg',
-  'description': 'white and purple flower petals',
+  'description': '',
 }];
+
+const cars = [{
+  'id': 'YdAqiUkUoWA',
+  'url': 'assets/img/cars-1.jpg',
+  'description': '',
+}, {
+  'id': 'hX_hf2lPpUU',
+  'url': 'assets/img/cars-2.jpg',
+  'description': '',
+}, {
+  'id': 'w1JE5duY62M',
+  'url': 'assets/img/cars-3.jpg',
+  'description': '',
+}, {
+  'id': '3tYZjGSBwbk',
+  'url': 'assets/img/cars-4.jpg',
+  'description': '',
+}, {
+  'id': 'NoXUQ54pDac',
+  'url': 'assets/img/cars-5.jpg',
+  'description': '',
+}, {
+  'id': 'OZhYgZh0bAg',
+  'url': 'assets/img/cars-6.jpg',
+  'description': '',
+}];
+
+const flowers = [{
+  'id': 'YdAqiUkUoWA',
+  'url': 'assets/img/flowers-1.jpg',
+  'description': '',
+}, {
+  'id': 'hX_hf2lPpUU',
+  'url': 'assets/img/flowers-2.jpg',
+  'description': '',
+}, {
+  'id': 'w1JE5duY62M',
+  'url': 'assets/img/flowers-3.jpg',
+  'description': '',
+}, {
+  'id': '3tYZjGSBwbk',
+  'url': 'assets/img/flowers-4.jpg',
+  'description': '',
+}, {
+  'id': 'NoXUQ54pDac',
+  'url': 'assets/img/flowers-5.jpg',
+  'description': '',
+}, {
+  'id': 'OZhYgZh0bAg',
+  'url': 'assets/img/flowers-6.jpg',
+  'description': '',
+}];
+
+
+const imageCollection = {
+  flowers, cats, cars,
+};
 
 const results = [
   { name: 'Marie', stepsCount: 16 },
@@ -55,4 +87,11 @@ const results = [
   { name: 'Kate', stepsCount: 19 }
 ];
 
-export {images, results}
+const getImages = (type) => {
+  const imagePairs = imageCollection[type].map(item => {
+   return {...item, id: `${item.id}-1`}
+  })
+  return [...imageCollection[type], ...imagePairs]
+}
+
+export {results, cats, cars, flowers, imageCollection, getImages}

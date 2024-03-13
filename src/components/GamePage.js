@@ -21,7 +21,7 @@ export default function GamePage ({images, onShowResult}){
                     finishedItems={finishedItems}
                 />
                 {isWin && (<Modal>
-                        <ModalCaption>You win!</ModalCaption>
+                        <ModalCaption>You won!</ModalCaption>
                         <ModalDescription>Let's check the results</ModalDescription>
                         <ModalButton type="button" onClick={handleModalClick}>Show results</ModalButton>
                     </Modal>

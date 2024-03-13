@@ -2,10 +2,11 @@ import GamePage from "./components/GamePage";
 import ResultsPage from "./components/ResultsPage";
 import {useState} from "react";
 
-function App({images = [], results = []}) {
+function App({getImages, results = []}) {
     const [result, setResult] = useState(0);
     const [page, setPage] = useState("game");
-
+    //const [images, setImages] = useState([]);
+    const images = getImages("cars");
     const showResult = (counter) => {
         setResult(counter);
         setPage("results");
