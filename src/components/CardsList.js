@@ -1,7 +1,8 @@
 import {useState} from "react";
 import Card from "./Card";
+import styled from "styled-components";
 
-export default function CardContainer({images, onHandleClick, finishedItems}){
+export default function CardsList({images, onHandleClick, finishedItems}){
     const [visibleItems, setVisibleItems] = useState([]);
     const cardClickHandler = (id) => {
         if (finishedItems.includes(id) || visibleItems.includes(id)) {
@@ -24,7 +25,7 @@ export default function CardContainer({images, onHandleClick, finishedItems}){
 
     }
     return <>
-        <ul className="cards cards-theme-cars">
+        <CardsListRoot>
             {images.map(item => <Card
                 key={item.id}
                 item={item}
@@ -32,6 +33,18 @@ export default function CardContainer({images, onHandleClick, finishedItems}){
                 isFinished={finishedItems.includes(item.id)}
                 cardClick={cardClickHandler}
             />)}
-        </ul>
+        </CardsListRoot>
     </>
 }
+
+const CardsListRoot = styled.ul`
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 220px);
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  perspective: 1000px; 
+`;

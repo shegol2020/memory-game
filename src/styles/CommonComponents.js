@@ -17,6 +17,14 @@ const Button = styled.button`
   border-radius: 10px;
   cursor: pointer;
   box-sizing: border-box;
+
+  &:hover {
+    background-color: #ffd97c;
+  }
+
+  &:active {
+    background-color: #ffd97c;
+  }
 `;
 
 export {Container, Button}

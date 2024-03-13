@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import useGame from "../hooks/useGame";
 import Progress from "./Progress";
-import CardContainer from "./CardContainer";
+import CardsList from "./CardsList";
 import Modal from "./Modal";
 import {Button} from "../styles/CommonComponents";
 
@@ -12,10 +12,10 @@ export default function GamePage ({images, onShowResult}){
     }
     return (
         <>
-            <GameContainer>
+            <GameWrapper>
                 <Progress value={finishedItems.length/2} max={images.length/2}/>
                 <Steps>Шаг {counter}</Steps>
-                <CardContainer
+                <CardsList
                     images={images}
                     onHandleClick={handleClick}
                     finishedItems={finishedItems}
@@ -26,13 +26,13 @@ export default function GamePage ({images, onShowResult}){
                         <ModalButton type="button" onClick={handleModalClick}>Show results</ModalButton>
                     </Modal>
                 )}
-            </GameContainer>
+            </GameWrapper>
         </>
     );
 }
 
 
-const GameContainer = styled.section`
+const GameWrapper = styled.section`
   width: 940px;
   margin: 0 auto 155px auto;
   display: grid;
