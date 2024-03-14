@@ -2,7 +2,7 @@ import {useState} from "react";
 import Card from "./Card";
 import styled from "styled-components";
 
-export default function CardsList({images, onHandleClick, finishedItems}){
+export default function CardsList({images, backImage, onHandleClick, finishedItems}){
     const [visibleItems, setVisibleItems] = useState([]);
     const cardClickHandler = (id) => {
         if (finishedItems.includes(id) || visibleItems.includes(id)) {
@@ -29,6 +29,7 @@ export default function CardsList({images, onHandleClick, finishedItems}){
             {images.map(item => <Card
                 key={item.id}
                 item={item}
+                backImage={backImage}
                 isShown={visibleItems.includes(item.id)}
                 isFinished={finishedItems.includes(item.id)}
                 cardClick={cardClickHandler}
@@ -46,5 +47,5 @@ const CardsListRoot = styled.ul`
   padding: 0;
   list-style: none;
 
-  perspective: 1000px; 
+  perspective: 1000px;
 `;

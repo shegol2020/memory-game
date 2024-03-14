@@ -5,7 +5,7 @@ import CardsList from "./CardsList";
 import Modal from "./Modal";
 import {Button} from "../styles/CommonComponents";
 
-export default function GamePage ({images, onShowResult}){
+export default function GamePage ({images, backImage, onShowResult}){
     const {counter, handleClick, isWin, finishedItems} = useGame(images);
     const handleModalClick = () => {
         onShowResult(counter);
@@ -17,6 +17,7 @@ export default function GamePage ({images, onShowResult}){
                 <Steps>Шаг {counter}</Steps>
                 <CardsList
                     images={images}
+                    backImage={backImage}
                     onHandleClick={handleClick}
                     finishedItems={finishedItems}
                 />

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import {Button, Container} from "../styles/CommonComponents";
 import {GAME_TYPES} from "../data";
 
-const InitialPage = () => {
+const InitialPage = ({onStart}) => {
 
     const handleStart = (type) => {
-       console.log(`start ${type}`)
+       onStart(type)
     };
     return (
         <RulesWrapper>
@@ -80,25 +80,7 @@ const RulesButton = styled(Button)`
   box-sizing: border-box;
   background-position: left 24px center;
   background-repeat: no-repeat;
-  
-  ${({ type }) => {
-    switch (type) {
-      case 'cats':
-        return `
-          background-image: url("/assets/img/icon-cats.svg");
-        `;
-      case 'cars':
-        return `
-          background-image: url("/assets/img/icon-cars.svg");
-        `;
-      case 'flowers':
-        return `
-          background-image: url("/assets/img/icon-flowers.svg");
-        `;
-      default:
-        return '';
-    }
-  }}
+  background-image: ${props => `url("assets/img/icon-${props.type}.svg")`};
 `
 
 export default InitialPage;

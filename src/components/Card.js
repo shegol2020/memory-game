@@ -1,12 +1,12 @@
 import styled, {css} from "styled-components";
 
-export default function Card({item, isShown, isFinished, cardClick}){
+export default function Card({item, isShown, isFinished, backImage, cardClick}){
     const {url, id, description} = item;const handleClick = () => {
         if(isShown || isFinished){ return }
         cardClick(id)
     }
     return <>
-        <CardRoot onClick={handleClick} $isShown={isShown} $isFinished={isFinished}>
+        <CardRoot onClick={handleClick} $isShown={isShown} $isFinished={isFinished} backImage={backImage}>
             <CardImg src={url} width="204" height="144" alt={description}/>
         </CardRoot>
     </>
@@ -32,7 +32,7 @@ const CardRoot = styled.li`
     content: "";
     width: 218px;
     height: 158px;
-    background-image: url("assets/img/back-cats.svg");
+    background-image: ${props => `url("assets/img/back-${props.backImage}.svg")`};
     background-repeat: no-repeat;
     background-position: center;
     backface-visibility: hidden;
