@@ -81,6 +81,12 @@ const imageCollection = {
   flowers, cats, cars,
 };
 
+const GAME_TYPES = [
+  { type: 'cats' },
+  { type: 'flowers'},
+  { type: 'cars' },
+];
+
 const results = [
   { name: 'Marie', stepsCount: 16 },
   { name: 'Ada', stepsCount: 12 },
@@ -91,7 +97,8 @@ const getImages = (type) => {
   const imagePairs = imageCollection[type].map(item => {
    return {...item, id: `${item.id}-1`}
   })
-  return [...imageCollection[type], ...imagePairs]
+  const mergedPairs = [...imageCollection[type], ...imagePairs];
+  return mergedPairs.sort(() => 0.5 - Math.random());
 }
 
-export {results, cats, cars, flowers, imageCollection, getImages}
+export {results, cats, cars, flowers, imageCollection, getImages, GAME_TYPES}

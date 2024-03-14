@@ -1,10 +1,11 @@
 import GamePage from "./components/GamePage";
 import ResultsPage from "./components/ResultsPage";
 import {useState} from "react";
+import InitialPage from "./components/InitialPage";
 
 function App({getImages, results = []}) {
     const [result, setResult] = useState(0);
-    const [page, setPage] = useState("game");
+    const [page, setPage] = useState("initial");
     //const [images, setImages] = useState([]);
     const images = getImages("cars");
     const showResult = (counter) => {
@@ -16,6 +17,8 @@ function App({getImages, results = []}) {
     }
     const getPage = (route) => {
         switch (route) {
+            case "initial":
+                return <InitialPage/>
             case "game":
                 return <GamePage images={images} onShowResult={showResult}/>;
             case "results":
