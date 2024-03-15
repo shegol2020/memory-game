@@ -1,6 +1,6 @@
 # Usage
-* install npm packages npm i
-* run webpack-dev-server: npm start
+* install npm packages `npm i`
+* run webpack-dev-server: `npm start`
 
 # Description 
 
