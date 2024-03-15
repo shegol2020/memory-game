@@ -14,7 +14,7 @@ export default function GamePage ({images, backImage, onShowResult}){
         <>
             <GameWrapper>
                 <Progress value={finishedItems.length/2} max={images.length/2}/>
-                <Steps>Шаг {counter}</Steps>
+                <Steps>Steps {counter}</Steps>
                 <CardsList
                     images={images}
                     backImage={backImage}
